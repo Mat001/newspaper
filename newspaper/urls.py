@@ -1,5 +1,4 @@
 from django.conf.urls import patterns, include, url
-
 from django.contrib import admin
 admin.autodiscover()
 
@@ -9,14 +8,11 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^$', 'newspaper.views.home'),
-    url(r'^title/$', 'article.views.title_aaa'),
-    url(r'^title_t/$', 'article.views.title_aaa_template'),
-
+    url(r'^article1/$', 'article.views.article_1'),
+    url(r'^article2/$', 'article.views.article_2'),
+    url(r'^article3/$', 'article.views.article_3'),
+    url(r'^article_t/$', 'article.views.article_aaa_template'),
     url(r'^admin/', include(admin.site.urls)),
-
-
-    # url(r'^title_template/$', 'article.views.title_aaa_template'),
-
-
-
+    (r'^articles/', include('article.urls')),
 )
+# above - no need for url as prefix when you use includej
